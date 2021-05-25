@@ -1,4 +1,5 @@
 /* 
+https://github.com/gustavolsj/datalogger-conservacion
 Datalogger_conservación_v.1.0 escrito por Gustavo Lozano gustavolsj@gmail.com
 
 Este sketch acompaña a la charla 
