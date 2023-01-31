@@ -1,8 +1,7 @@
 # datalogger-conservacion
 
 Guía para la fabricación de un datalogger para la conservación preventiva en archivos, bibliotecas y museos
-
-![Componentes de un datalogger casero](imagenes/componentes.jpg)
+![datalogger](imagenes/datalogger.jpg)
 
 # Indice
 
@@ -24,6 +23,7 @@ Para conocer más sobre este proyecto puedes leer el artículo [Tecnología make
 
 # Componentes
 
+![Componentes de un datalogger casero](imagenes/componentes.jpg)
 El componente más importante es el sensor, en él recae buena parte de la confiabilidad del datalogger, por lo que vale la pena invertir en uno que sea de buena calidad en un proveedor confiable. En este proyecto se han usado dos diferentes:
 
 - [Bosch® BME280](https://mexico.newark.com/c/computadoras-embebidas-educacion-tarjetas-de-fabricante/arduino?st=bme280&showResults=true)
@@ -37,6 +37,8 @@ El resto de los componentes necesarios para su construcción son mínimos y pued
 - [Pantalla I2C](https://listado.mercadolibre.com.mx/pantalla-i2c#D) \*opcional
 
 # Fabricación
+
+![conexiones](imagenes/conexiones.jpg)
 
 La fabricación es muy sencilla ya que los componentes son mínimos, unicamente se debe ensamblar el Datalogger shield sobre el Arduino Uno teniendo cuidado de que todos los pines entren correctamente.
 
@@ -58,6 +60,7 @@ En caso de que las necesites también las puedes encontrar en la carpeta [librer
 
 # Programacion
 
+![codigo](imagenes/codigo.jpg)
 El código se compone de tres partes, la sección de librerías y variables, la sección de configuración y la sección del ciclo.
 
 Los archivos listos para subirse al arduino se encuentra en dos carpetas, dependiendo cual de los sensores hayas elegido usar, también dependiendo de si se utiliza la pantalla LCD o no.
@@ -68,5 +71,3 @@ Los archivos listos para subirse al arduino se encuentra en dos carpetas, depend
 El datalogger realiza una medición cada 30 minutos y almacena los datos en un archivo de texto con formato de valores separados por coma (\*.CSV) que se puede abrir desde cualquier programa de hoja de cálculo o editor de texto.
 
 Los datos se almacenan bajo la siguiente estructura: año/mes/día hora:minuto:segundo, HR, valor, T, valor. En donde la fecha y la hora se expresa numéricamente en formato de 24 horas y los valores de humedad relativa y temperatura consisten en números con dos decimales.
-
-![codigo](imagenes/codigo.jpg)
