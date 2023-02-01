@@ -71,3 +71,5 @@ Los archivos listos para subirse al arduino se encuentra en dos carpetas, depend
 El datalogger realiza una medición cada 30 minutos y almacena los datos en un archivo de texto con formato de valores separados por coma (\*.CSV) que se puede abrir desde cualquier programa de hoja de cálculo o editor de texto.
 
 Los datos se almacenan bajo la siguiente estructura: año/mes/día hora:minuto:segundo, HR, valor, T, valor. En donde la fecha y la hora se expresa numéricamente en formato de 24 horas y los valores de humedad relativa y temperatura consisten en números con dos decimales.
+
+![grafica](imagenes/grafica.jpg)
