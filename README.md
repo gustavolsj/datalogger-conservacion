@@ -5,7 +5,7 @@ Guía para la fabricación de un datalogger para la conservación preventiva en 
 
 # Indice 👉
 
-- [Descripcion general](#descripcion-general)
+- [Descripcion general](#descripcion-general-📚)
 - [Componentes](#componentes)
 - [Fabricación](#fabricacion)
 - [Librerias](#librerias)
