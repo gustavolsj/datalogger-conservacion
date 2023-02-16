@@ -1,9 +1,9 @@
-# datalogger-conservacion
+# datalogger-conservacion 🌡️ ☁️
 
 Guía para la fabricación de un datalogger para la conservación preventiva en archivos, bibliotecas y museos
 ![datalogger](imagenes/datalogger.jpg)
 
-# Indice
+# Indice 👉
 
 - [Descripcion general](#descripcion-general)
 - [Componentes](#componentes)
@@ -11,7 +11,7 @@ Guía para la fabricación de un datalogger para la conservación preventiva en 
 - [Librerias](#librerias)
 - [Programación](#programacion)
 
-# Descripcion general
+# Descripcion general 📚
 
 Dentro de la disciplina de la conservación de bienes culturales, una de las estrategías más efectivas para minimizar su deterioro es el [ Monitoreo y Control](http://www.bnm.unam.mx/files/quienes-somos/preservacion-documental/norma-mexicana-preservacion-documental.pdf) de los [Agentes de deterioro](https://www.cncr.gob.cl/noticias/agentes-de-deterioro-instituto-canadiense-de-conservacion-icc).
 
@@ -21,7 +21,7 @@ Aquí se ofrece una alternativa para construir un datalogger que mida la humedad
 
 Para conocer más sobre este proyecto puedes leer el artículo [Tecnología maker y su aplicación en conservación](https://www.academia.edu/43988917/Tecnología_maker_y_su_aplicación_en_conservación_V_Coloquio_Conservación_y_Restauración_Lozano)
 
-# Componentes
+# Componentes ✔️
 
 ![Componentes de un datalogger casero](imagenes/componentes.jpg)
 El componente más importante es el sensor, en él recae buena parte de la confiabilidad del datalogger, por lo que vale la pena invertir en uno que sea de buena calidad en un proveedor confiable. En este proyecto se han usado dos diferentes:
@@ -36,7 +36,7 @@ El resto de los componentes necesarios para su construcción son mínimos y pued
 - [Cargador USB](https://listado.mercadolibre.com.mx/cargador-usb#D)
 - [Pantalla I2C](https://listado.mercadolibre.com.mx/pantalla-i2c#D) \*opcional
 
-# Fabricación
+# Fabricación ⚙️
 
 ![conexiones](imagenes/conexiones.jpg)
 
@@ -48,7 +48,7 @@ Para proteger los componentes se pude imprimir en 3D una carcasa o bien se puede
 
 ![fritzing](imagenes/fritzing.jpg)
 
-# Librerias
+# Librerias 📖
 
 Para establecer comunicación entre la computadora y el Arduino se necesita instalar el programa Arduino IDE, en esta [guía](https://programarfacil.com/blog/arduino-blog/arduino-ide/) puedes ver como se instala.
 
@@ -58,7 +58,7 @@ Adicionalmente los diferentes componentes necesitan varias librerias para funcio
 
 En caso de que las necesites también las puedes encontrar en la carpeta [librerias](librerias/)
 
-# Programacion
+# Programacion 🖥️
 
 ![codigo](imagenes/codigo.jpg)
 El código se compone de tres partes, la sección de librerías y variables, la sección de configuración y la sección del ciclo.
