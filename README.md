@@ -36,7 +36,7 @@ El resto de los componentes necesarios para su construcción son mínimos y pued
 - [Cargador USB](https://listado.mercadolibre.com.mx/cargador-usb#D)
 - [Pantalla I2C](https://listado.mercadolibre.com.mx/pantalla-i2c#D) \*opcional
 
-# Fabricación ⚙️
+# Fabricación 🛠️
 
 ![conexiones](imagenes/conexiones.jpg)
 
