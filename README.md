@@ -58,7 +58,7 @@ Adicionalmente los diferentes componentes necesitan varias librerias para funcio
 
 En caso de que las necesites también las puedes encontrar en la carpeta [librerias](librerias/)
 
-#Programacion 🖥️
+# Programacion 🖥️
 
 ![codigo](imagenes/codigo.jpg)
 El código se compone de tres partes, la sección de librerías y variables, la sección de configuración y la sección del ciclo.
