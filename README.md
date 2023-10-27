@@ -26,7 +26,7 @@ Para conocer más sobre este proyecto puedes leer el artículo [Tecnología make
 ![Componentes de un datalogger casero](imagenes/componentes.jpg)
 El componente más importante es el sensor, en él recae buena parte de la confiabilidad del datalogger, por lo que vale la pena invertir en uno que sea de buena calidad en un proveedor confiable. En este proyecto se han usado dos diferentes:
 
-- [Bosch® BME280](https://mexico.newark.com/c/computadoras-embebidas-educacion-tarjetas-de-fabricante/arduino?st=bme280&showResults=true)
+- [Bosch® BME280](https://mexico.newark.com/c/computadoras-de-tarjeta-unica-creador-educacion/tarjetas-modulos-complementarios?st=bme280&showResults=true)
 - [Sensirion® SHT31](https://www.mouser.mx/c/?q=sht31)
 
 El resto de los componentes necesarios para su construcción son mínimos y pueden adquirirse vía internet:
