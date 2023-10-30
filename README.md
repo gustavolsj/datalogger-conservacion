@@ -34,7 +34,11 @@ El resto de los componentes necesarios para su construcción son mínimos y pued
 - [Arduino Uno](https://listado.mercadolibre.com.mx/arduino-uno#D)
 - [Datalogger shield](https://listado.mercadolibre.com.mx/datalogger-shield#D)
 - [Cargador USB](https://listado.mercadolibre.com.mx/cargador-usb#D)
-- [Pantalla I2C](https://listado.mercadolibre.com.mx/pantalla-i2c#D) \*opcional
+- [Tarjeta MicroSD](https://listado.mercadolibre.com.mx/tarjeta-microsd-16-gb#D[A:tarjeta%20microsd%2016%20gb])
+- [Lector MicroSD](https://listado.mercadolibre.com.mx/lector-de-tarjetas-microsd#D[A:lector%20de%20tarjetas%20microsd%20])
+- [Batería CR-1220](https://listado.mercadolibre.com.mx/cr-1220#D[A:CR-1220])
+  *Opcional
+- [Pantalla I2C](https://listado.mercadolibre.com.mx/pantalla-i2c#D) 
 
 # Fabricación 🛠️
 
