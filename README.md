@@ -37,6 +37,7 @@ El resto de los componentes necesarios para su construcción son mínimos y pued
 - [Tarjeta MicroSD](https://listado.mercadolibre.com.mx/tarjeta-microsd-16-gb#D[A:tarjeta%20microsd%2016%20gb])
 - [Lector MicroSD](https://listado.mercadolibre.com.mx/lector-de-tarjetas-microsd#D[A:lector%20de%20tarjetas%20microsd%20])
 - [Batería CR-1220](https://listado.mercadolibre.com.mx/cr-1220#D[A:CR-1220])
+- [Cables duPont hembra-macho](https://listado.mercadolibre.com.mx/cable-dupont-macho-hembra#D[A:cable%20dupont%20macho%20hembra]) 
   *Opcional
 - [Pantalla I2C](https://listado.mercadolibre.com.mx/pantalla-i2c#D) 
 
