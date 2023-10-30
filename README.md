@@ -39,7 +39,7 @@ El resto de los componentes necesarios para su construcción son mínimos y pued
 - [Batería CR-1220](https://listado.mercadolibre.com.mx/cr-1220#D[A:CR-1220])
 - [Cables duPont hembra-macho](https://listado.mercadolibre.com.mx/cable-dupont-macho-hembra#D[A:cable%20dupont%20macho%20hembra])
   
-  *Opcional
+*Opcional
   
 - [Pantalla I2C](https://listado.mercadolibre.com.mx/pantalla-i2c#D) 
 
