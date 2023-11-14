@@ -19,7 +19,7 @@ Para ello se utiliza un datalogger, que es un aparato que mide, almacena y muest
 
 Aquí se ofrece una alternativa para construir un datalogger que mida la humedad relativa y temperatura, que sea accesible, confiable y sostenible. Este datalogger se ubica al mismo nivel que los dataloggers comerciales y su costo es de alrededor de $800 pesos mexicanos, una fracción del costo de los otros dataloggers.
 
-Para conocer más sobre este proyecto puedes leer el artículo [Tecnología maker y su aplicación en conservación](https://www.academia.edu/43988917/Tecnología_maker_y_su_aplicación_en_conservación_V_Coloquio_Conservación_y_Restauración_Lozano)
+Para conocer más sobre este proyecto puedes leer el artículo [Tecnología maker y su aplicación en conservación](https://revistaintervencion.inah.gob.mx/index.php/intervencion/article/view/6443)
 
 # Componentes ✔️
 
