@@ -60,9 +60,9 @@ Para proteger los componentes se pude imprimir en 3D una carcasa o bien se puede
 
 # Librerias 📖
 
-Para establecer comunicación entre la computadora y el Arduino se necesita instalar el programa Arduino IDE, en esta [guía](https://programarfacil.com/blog/arduino-blog/arduino-ide/) puedes ver como se instala.
+Para establecer comunicación entre la computadora y el Arduino se necesita instalar el programa Arduino IDE, descargalo [aqui](https://www.arduino.cc/en/software), en esta [guía](https://programarfacil.com/blog/arduino-blog/arduino-ide/) puedes ver como se instala.
 
-Si tienes problemas puedes probar instalando el controlador para windows que se encuentra en la carpeta [controlador](controlador/)
+Si tienes problemas de conexión con la placa puedes probar instalando el controlador para windows que se encuentra en la carpeta [controlador](controlador/)
 
 Adicionalmente los diferentes componentes necesitan varias librerias para funcionar correctamente por lo que será necesario instalar cada una de ellas antes de cargar el codigo al Arduino Uno. La instalación se hcae desde el Gestor de librerias, [aquí](https://programarfacil.com/blog/arduino-blog/instalar-una-libreria-de-arduino/) te muestran como.
 
