@@ -26,10 +26,10 @@ Archivo > Herramientas > Manejo de bibliotecas
 LiquidCrystal_I2C lcd (0x27,16,2);  // set the Serial address to 0x27 for a 16 chars and 2 line display
 
 //Periodo de espera entre cada medición, descomentar sólo uno  
-int Intervalo =      5000;   //5 SEGUNDOS
-//int Intervalo =    60000;   //60 SEGUNDOS
-//int Intervalo =   300000;   //5 MINUTOS 
-//int Intervalo = 1800000;    //30 MINUTOS  a 'ul' or 'UL' to force the constant into an unsigned long constant. Example: 32767ul
+long Intervalo =      5000;   //5 SEGUNDOS
+//long Intervalo =    60000;   //60 SEGUNDOS
+//long Intervalo =   300000;   //5 MINUTOS 
+//long Intervalo = 1800000;    //30 MINUTOS  a 'ul' or 'UL' to force the constant into an unsigned long constant. Example: 32767ul
 
 float h;                // Creamos la variable h para almacenar la humedad relativa y 
 float t;                 // Creamos la variable t para almacenar la temperatura 
