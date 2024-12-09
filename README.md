@@ -7,15 +7,15 @@ Para mayor información sigue estas instrucciones sobre el [Arduino Cloud Editor
 Guía para la fabricación de un datalogger para la conservación preventiva en archivos, bibliotecas y museos
 ![datalogger](imagenes/datalogger.jpg)
 
-# Indice
+# Indice 👉
 
-- [Descripcion general](#descripcion-general)
-- [Componentes](#componentes)
-- [Fabricación](#fabricacion)
-- [Librerias](#librerias)
-- [Programación](#programacion)
+- [Descripcion general](#descripcion-general-)
+- [Componentes](#componentes-)
+- [Fabricación](#fabricacion-)
+- [Librerias](#librerias-)
+- [Programación](#programacion-)
 
-# Descripcion general
+# Descripcion general 📚
 
 Dentro de la disciplina de la conservación de bienes culturales, una de las estrategías más efectivas para minimizar su deterioro es el [ Monitoreo y Control](http://www.bnm.unam.mx/files/quienes-somos/preservacion-documental/norma-mexicana-preservacion-documental.pdf) de los [Agentes de deterioro](https://www.cncr.gob.cl/noticias/agentes-de-deterioro-instituto-canadiense-de-conservacion-icc).
 
@@ -23,15 +23,18 @@ Para ello se utiliza un datalogger, que es un aparato que mide, almacena y muest
 
 Aquí se ofrece una alternativa para construir un datalogger que mida la humedad relativa y temperatura, que sea accesible, confiable y sostenible. Este datalogger se ubica al mismo nivel que los dataloggers comerciales y su costo es de alrededor de $800 pesos mexicanos, una fracción del costo de los otros dataloggers.
 
-Para conocer más sobre este proyecto puedes leer el artículo [Tecnología maker y su aplicación en conservación](https://www.academia.edu/43988917/Tecnología_maker_y_su_aplicación_en_conservación_V_Coloquio_Conservación_y_Restauración_Lozano)
+Para conocer más sobre este proyecto puedes leer el artículo [Tecnología maker y su aplicación en conservación](https://revistaintervencion.inah.gob.mx/index.php/intervencion/article/view/6443)
 
-# Componentes
+# Componentes ✔️
 
 ![Componentes de un datalogger casero](imagenes/componentes.jpg)
-El componente más importante es el sensor, en él recae buena parte de la confiabilidad del datalogger, por lo que vale la pena invertir en uno que sea de buena calidad en un proveedor confiable. En este proyecto se han usado dos diferentes:
+El componente más importante es el sensor, en él recae buena parte de la confiabilidad del datalogger, por lo que vale la pena invertir en uno que sea de buena calidad en un proveedor confiable. En este proyecto se ha usado este:
 
-- [Bosch® BME280](https://mexico.newark.com/c/computadoras-embebidas-educacion-tarjetas-de-fabricante/arduino?st=bme280&showResults=true)
-- [Sensirion® SHT31](https://www.mouser.mx/c/?q=sht31)
+- [Bosch® BME280](https://mexico.newark.com/c/computadoras-de-tarjeta-unica-creador-educacion/tarjetas-modulos-complementarios?st=bme280&showResults=true)
+
+o este otro:
+
+- [Sensirion® SHT31](https://www.mouser.mx/ProductDetail/Adafruit/2857?qs=ivJcBTDythUTq%252BPyc8dfFQ%3D%3D)
 
 El resto de los componentes necesarios para su construcción son mínimos y pueden adquirirse vía internet:
 
@@ -40,7 +43,7 @@ El resto de los componentes necesarios para su construcción son mínimos y pued
 - [Cargador USB](https://listado.mercadolibre.com.mx/cargador-usb#D)
 - [Pantalla LCD con interfaz I2C](https://listado.mercadolibre.com.mx/pantalla-i2c#D) \*opcional
 
-# Fabricación
+# Fabricación 🛠️
 
 ![conexiones](imagenes/conexiones.jpg)
 
@@ -52,17 +55,17 @@ Para proteger los componentes se pude imprimir en 3D una carcasa o bien se puede
 
 ![fritzing](imagenes/fritzing.jpg)
 
-# Librerias
+# Librerias 📖
 
-Para establecer comunicación entre la computadora y el Arduino se necesita instalar el programa Arduino IDE, en esta [guía](https://programarfacil.com/blog/arduino-blog/arduino-ide/) puedes ver como se instala.
+Para establecer comunicación entre la computadora y el Arduino se necesita instalar el programa Arduino IDE, descargalo [aqui](https://www.arduino.cc/en/software), en esta [guía](https://programarfacil.com/blog/arduino-blog/arduino-ide/) puedes ver como se instala.
 
-Si tienes problemas puedes probar instalando el controlador para windows que se encuentra en la carpeta [controlador](controlador/)
+Si tienes problemas de conexión con la placa puedes probar instalando el controlador para windows que se encuentra en la carpeta [controlador](controlador/)
 
 Adicionalmente los diferentes componentes necesitan varias librerias para funcionar correctamente por lo que será necesario instalar cada una de ellas antes de cargar el codigo al Arduino Uno. La instalación se hcae desde el Gestor de librerias, [aquí](https://programarfacil.com/blog/arduino-blog/instalar-una-libreria-de-arduino/) te muestran como.
 
 En caso de que las necesites también las puedes encontrar en la carpeta [librerias](librerias/)
 
-# Programacion
+# Programacion 🖥️
 
 ![codigo](imagenes/codigo.jpg)
 El código se compone de tres partes, la sección de librerías y variables, la sección de configuración y la sección del ciclo.
