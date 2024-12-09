@@ -29,10 +29,11 @@ Archivo > Herramientas > Manejo de bibliotecas
 #include <Adafruit_BME280.h>  //Esta es otra librería que contiene las funciones del sensor BME280
 
 //Periodo de espera entre cada medición, descomentar sólo uno  
-int Intervalo =      10000;   //10 SEGUNDOS
-//int Intervalo =    60000;   //60 SEGUNDOS
-//int Intervalo =   300000;   //5 MINUTOS 
-//int Intervalo = 1800000;    //30 MINUTOS
+long Intervalo =      5000;   //5 SEGUNDOS
+//long Intervalo =    60000;   //60 SEGUNDOS
+//long Intervalo =   300000;   //5 MINUTOS 
+//long Intervalo = 1800000;    //30 MINUTOS  a 'ul' or 'UL' to force the constant into an unsigned long constant. Example: 32767ul
+
 
 float bmehr_0;                // Creamos la variable bmehr_0 para almacenar la humedad relativa y 
 float bmet_0;                 // Creamos la variable bmet_0 para almacenar la temperatura 

@@ -1,5 +1,9 @@
 # datalogger-conservacion
 
+**ACTUALIZACIÓN DIC 2024:** Ahora es posible programar el datalogger desde un buscador como Chrome o Firefox sin necesidad de instalar el IDE en tu computadora ni de instalar las librerias. Para ello puedes usar mi [sketch en linea](https://app.arduino.cc/sketches/02564d45-08e9-412f-9886-60db8a78643e).
+
+Para mayor información sigue estas instrucciones sobre el [Arduino Cloud Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor/)
+
 Guía para la fabricación de un datalogger para la conservación preventiva en archivos, bibliotecas y museos
 ![datalogger](imagenes/datalogger.jpg)
 
@@ -34,7 +38,7 @@ El resto de los componentes necesarios para su construcción son mínimos y pued
 - [Arduino Uno](https://listado.mercadolibre.com.mx/arduino-uno#D)
 - [Datalogger shield](https://listado.mercadolibre.com.mx/datalogger-shield#D)
 - [Cargador USB](https://listado.mercadolibre.com.mx/cargador-usb#D)
-- [Pantalla I2C](https://listado.mercadolibre.com.mx/pantalla-i2c#D) \*opcional
+- [Pantalla LCD con interfaz I2C](https://listado.mercadolibre.com.mx/pantalla-i2c#D) \*opcional
 
 # Fabricación
 
