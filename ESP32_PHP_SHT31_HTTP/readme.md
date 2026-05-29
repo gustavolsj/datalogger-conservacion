@@ -1,39 +1,90 @@
-🌡️📡 Datalogger wifi + servidor web
+# Datalogger wifi + servidor web
 
-Estos dos dispositivos están diseñado para medir temperatura y humedad en intervalos regulares, los datos se envían a un servidor web para su registro y visualización en línea. Más que un simple datalogger es un sistema completo de sensado, procesamiento, conectividad y almacenamiento remoto.
+![datalogger](Capture.JPG)
 
-🧩 Datalogger
-El núcleo del datalogger es un microcontrolador ESP32 a él se conecta un sensor SHT31, responsable de capturar las variables ambientales con buena precisión. El ESP32 toma estas mediciones, se conecta a la red Wi-Fi disponible y transmite la información al servidor web local donde se guarda en una base de datos.
-
-Unidad de control: ESP32 con conectividad Wi-Fi integrada.
-Sensor ambiental: SHT31 (temperatura + humedad) por bus I2C.
-Alimentación: cargador micro USB
-Red de comunicación: infraestructura Wi-Fi local.
-Backend de almacenamiento: servidor web con script PHP para la recepción de datos y su almacenamiento en una base de datos Sqlite.
-
-🌐 Servidor web de almacenamiento
-Este servidor web se aloja de manera local en una Raspberry Pi 2B, que funciona como punto central de recepción y almacenamiento. En esta Raspberry se ejecuta un script PHP que recibe por HTTP los valores de temperatura y humedad enviados por el ESP32 en cada ciclo de medicion.
-
-El flujo de trabajo es el siguiente:
-
-1. El ESP32 toma la lectura del sensor SHT31 y genera una peticion HTTP con los parametros de temperatura y humedad.
-2. El script PHP en la Raspberry Pi 2B valida la llegada de los datos y los inserta en la base de datos local.
-3. Con cada insercion, el sistema también actualiza un archivo de datos.json con el registro mas reciente para.
-4. Ese JSON se utiliza como fuente para la visualizacion historica en la web.
-
-🌐 Servidor web de visualización
-La visualizacion y publicacion en línea se despliega mediante GitHub Pages usando el archivo dataloggers.md. Esa pagina consume datos.json y los presenta en linea con:
+Este proyecto propone un datalogger con conectividad Wi-Fi para medir temperatura y humedad relativa y un servidor web para almacenar y publicar la informacion en línea, lo que en conjunto ofrece una solucion completa y autónoma para la medicion, almacenamiento y visualización de datos espcializados.
 
 - grafica temporal de temperatura y humedad;
 - tabla de resumen con minimos, maximos, promedio, mediana y desviacion estandar;
-- porcentaje de tiempo dentro y fuera de los rangos definidos;
-- estado del sistema (en linea/fuera de linea) segun la fecha de la ultima medicion;
-- calculo de TWPI para evaluar condiciones de conservacion en el tiempo.
+- porcentaje de tiempo dentro y fuera de rangos definidos;
+- estado del sistema segun la fecha de la ultima medicion;
+- calculo de TWPI para evaluar condiciones de conservacion.
 
-Con esta arquitectura, el sistema separa claramente adquisicion, almacenamiento y visualizacion: el ESP32 mide y envia, la Raspberry Pi 2B recibe y procesa, y GitHub Pages publica la interfaz para consulta remota desde cualquier dispositivo con navegador.
+[Capture.JPG](Capture.JPG)
 
-✅ Ventajas prácticas del datalogger
-Monitoreo continuo de condiciones ambientales.
-Trazabilidad histórica para reportes y decisiones.
-Bajo costo y fácil despliegue en proyectos personales.
-Escalable: puede replicarse en varios nodos y centralizar datos.
+# Indice 👉
+
+- [Descripcion general](#descripcion-general-)
+- [Componentes](#componentes-)
+- [Fabricación](#fabricacion-)
+- [Librerias](#librerias-)
+- [Programación](#programacion-)
+
+# Descripcion general 🌡️
+
+Este sistema de monitoreo ambeintal esta formado por dos partes. La primera es el dispositivo de medicion, donde el microcontrolador ESP32 mide la temperatura y humedad relativa desde el sensor SHT31 concectado por medio del bus I2C, y la envía al servidor, que recibe esos datos por HTTP, los guarda en una base de datos sql y simultaneamente actualiza un archivo JSON para su consulta posterior.
+
+En mi caso el backend está alojado en una [Raspberry Pi 2B](https://www.raspberrypi.com/products/raspberry-pi-2-model-b/) pero puede ser algún otro equipocon soporte para PHP y base de datos MySQL, cinluyendo un servidor virtual privado. Despues, la visualizacion se realiza en el mismo u otro servidor mediante una página web estática[dataloggers.md](dataloggers.md), que toma la informacion del archivo [datos.json](datos.json) y la analiza para mostrar datos estadísticos en formato de tabla y en una grafica interactiva generada pdinámicamente.
+
+El flujo de datos es el siguiente:
+
+1. El ESP32 inicia el sensor SHT31 y se conecta a la red Wi-Fi.
+2. Cada cierto intervalo toma una lectura de temperatura y humedad.
+3. El microcontrolador envia los datos al script [insertar_datos.php](insertar_datos.php) usando HTTP GET.
+4. El servidor registra la medicion y actualiza [datos.json](datos.json).
+5. La pagina web consulta ese archivo para mostrar el historico, las estadisticas y el estado del sistema, usando la librería chartJS.
+
+Con esta arquitectura se separan adquisicion, almacenamiento y visualizacion, lo que facilita el mantenimiento del proyecto y permite adaptarlo a diferentes espacios de monitoreo.
+
+# Componentes ✔️
+
+Los componentes principales de este sistema son los siguientes:
+
+Datalogger
+
+- Microcontrolador [ESP32](https://www.espressif.com/en/products/socs/esp32) como unidad de control y comunicacion Wi-Fi.
+- [Sensor SHT31](https://www.mouser.mx/ProductDetail/Adafruit/2857?qs=ivJcBTDythUTq%252BPyc8dfFQ%3D%3D) para medir temperatura y humedad.
+- Cargador y cable micro USB para la alimentacion de 5 voltios y 1 amper.
+- Red Wi-Fi local para el envio de datos.
+
+Servidor web
+
+- [Raspberry Pi 2B](https://www.raspberrypi.com/products/raspberry-pi-2-model-b/) u otro equipo similar para alojar el backend y la pagina de desplpiegue.
+
+# Fabricacion 🛠️
+
+El ensamblaje es sumament sencillo, unicamente se conecta el microcontrolador al sensor SHT31 mediante I2C y se alimenta por micro USB. Como en cualquier equipo de monitoreo ambiental, conviene colocar el sensor en una zona con buena circulacion de aire y proteger la electronica del polvo, golpes o humedad excesiva.
+
+Es muy conveniente fijar el sensor y el microcontrolador dentro de una carcasa o contenedor plastico ventilado.
+
+Antes de poner el equipo en servicio se recomienda:
+
+1. Verificar la direccion I2C del SHT31 y confirmar que responde correctamente.
+2. Confirmar que el ESP32 se conecta a la red Wi-Fi del lugar de instalacion.
+3. Probar desde un navegador la URL del script PHP [insertar_datos.php](insertar_datos.php).
+4. Validar que el servidor escribe correctamente en la base de datos y actualiza el archivo [datos.json](datos.json).
+
+# Librerias 📖
+
+El programa del ESP32 utiliza varias librerias incluidas en el entorno de Arduino y otras especificas para el sensor:
+
+- `WiFi.h` para la conexion a la red inalambrica.
+- `HTTPClient.h` para realizar la peticion HTTP al servidor.
+- `Wire.h` para la comunicacion I2C.
+- `Adafruit_SHT31.h` para inicializar y leer el sensor.
+
+Si necesitas apoyo con la instalacion del entorno puedes usar el [Arduino IDE](https://www.arduino.cc/en/software). En este repositorio tambien se incluyen varias dependencias dentro de la carpeta [librerias](../librerias/) y controladores USB dentro de [controlador](../controlador/), lo que facilita replicar el proyecto en otra computadora.
+
+# Programacion 🖥️
+
+La logica principal del sistema se encuentra en [ESP32_PHP_SHT31_HTTP_public.ino](ESP32_PHP_SHT31_HTTP_public.ino). Antes de cargar el sketch al ESP32 es necesario editar tres grupos de parametros:
+
+- credenciales de la red Wi-Fi (`ssid` y `password`);
+- direccion del servidor en la variable `serverName`;
+- intervalo de envio definido en `interval`.
+
+Durante la ejecucion, el sketch inicializa el puerto serial, arranca el sensor SHT31 y espera conexion Wi-Fi. Despues, dentro de `loop()`, controla el tiempo transcurrido y llama a `enviarDatos()` cuando corresponde. Esa funcion toma las lecturas, construye la URL con los parametros de temperatura y humedad y la envia al servidor.
+
+En el backend, [insertar_datos.php](insertar_datos.php) debe configurarse con los datos reales de conexion a la base de datos. Ese script recibe `temperatura` y `humedad`, inserta el registro y genera la informacion que luego queda disponible en [datos.json](datos.json).
+
+Finalmente, [dataloggers.md](dataloggers.md) se encarga de presentar la informacion con graficas, tablas resumen y el estado del sistema a partir del ultimo registro disponible.
