@@ -1,12 +1,14 @@
-# sketches_datalogger
-
 ![Datalogger compacto](/imagenes/TTGO_LCD.jpg)
 
-Este repositorio reúne una colección de sketches desarrollados para proyectos de datalogging, monitoreo remoto y visualización de variables ambientales en plataformas Arduino y ESP. El enfoque principal está en la medición de temperatura, humedad, voltaje y otras señales asociadas al funcionamiento de sistemas de monitoreo, con distintas estrategias de almacenamiento, transmisión y presentación de datos. A lo largo del repositorio se exploran soluciones tanto para prototipos de laboratorio como para despliegues más cercanos a uso real, combinando sensores, pantallas, conectividad de red y servicios en la nube.
+Este repositorio ofrece diversos ejemplos de cómo construir dataloggers ambientales para el monitoreo de agentes de deterioro como la temperatura, la humedad relativa y la radiación visible e ultravioleta que sean utiles en la conservación del patrimonio cultural.
+
+Su valor principal está en mostrar, de forma organizada, cómo resolver el mismo problema con enfoques diferentes: almacenamiento local en tarjetas SD , transmisión de datos via wifi o ethernet, visualización en pantallas de bajo consumo y alertas remotas.
+
+La motivacion para hacer nuestro propio datalogger para conservación puede ser económica, ambiental, política o simplemente de curiosidad y aprendizaje.
 
 ## Objetivo general
 
-El objetivo de este conjunto de proyectos es experimentar, comparar y consolidar distintas arquitecturas de adquisición y envío de datos desde microcontroladores. En lugar de limitarse a una única placa o servicio, el repositorio muestra variantes que permiten adaptar la solución a diferentes necesidades: desde registros locales en tarjeta SD, hasta publicación en plataformas web o en aplicaciones móviles. Esto convierte al repositorio en una base útil para prototipado, documentación técnica y reutilización de código en futuros desarrollos de monitoreo ambiental.
+El objetivo técnico de este conjunto de proyectos es invitar aotras personas a experimentar, comparar y consolidar distintas arquitecturas de adquisición y envío de datos ambientales desde microcontroladores. En lugar de limitarse a una única placa o servicio, el repositorio muestra variantes que permiten adaptar la solución a diferentes necesidades: desde registros locales en tarjeta SD, hasta publicación en plataformas web o en aplicaciones móviles. Esto convierte al repositorio en una base útil para prototipado, documentación técnica y reutilización de código en futuros desarrollos de monitoreo ambiental.
 
 ## PLACAS
 
@@ -37,17 +39,3 @@ A nivel tecnológico, esta categoría suele involucrar protocolos de red, client
 La categoría **DESPLIEGUE** está orientada a los montajes pensados para uso en campo o para presentación directa de la información en el dispositivo. Aquí aparecen soluciones con pantallas eInk, buzzer, lectura de batería y gestión de ciclos de actualización, lo que sugiere una intención clara de construir sistemas autónomos, de bajo consumo y visualmente simples. Esta es la parte del repositorio más cercana a una aplicación final, porque no solo adquiere datos, sino que también los hace visibles y útiles para un operador o usuario final.
 
 Desde el punto de vista tecnológico, esta carpeta destaca por el uso de displays de tinta electrónica, librerías específicas como `Adafruit_ThinkInk`, y mecanismos para operar con eficiencia energética. También aparecen mediciones de batería y señales acústicas que ayudan a confirmar el estado del sistema sin depender necesariamente de una conexión permanente a internet. Es una categoría muy representativa del paso entre prototipo y despliegue funcional.
-
-## ifDEBUG
-
-La carpeta **ifDEBUG** contiene sketches pequeños de apoyo para depuración y prueba de comportamiento. Su función es ayudar a controlar la salida por serial sin afectar la lógica principal del sistema, permitiendo activar o desactivar mensajes de diagnóstico mediante macros de compilación. Aunque parece una categoría menor, cumple una función importante en el mantenimiento del repositorio, porque facilita pruebas rápidas y reduce la necesidad de modificar código central solo para depurar.
-
-En términos tecnológicos, se basa en una técnica simple pero efectiva: compilación condicional con `#define DEBUG` y macros que deciden si imprimir o no por `Serial`. Esto hace que el mismo sketch pueda servir tanto para desarrollo como para ejecución más limpia, sin necesidad de mantener versiones duplicadas. Es una utilidad práctica para revisar estados, errores y comportamiento básico del hardware.
-
-## Características generales del repositorio
-
-En conjunto, el repositorio se caracteriza por su enfoque modular, su variedad de hardware soportado y su orientación a proyectos de monitoreo ambiental e IoT. Predominan los sketches escritos en Arduino C/C++, con uso frecuente de sensores de temperatura y humedad, comunicaciones WiFi y Ethernet, pantallas de bajo consumo, registro local en SD y envío de datos a plataformas remotas. También se aprecia un interés claro por la experimentación técnica, ya que muchas carpetas parecen representar iteraciones, pruebas o variantes de una misma idea principal.
-
-## Conclusión
-
-Este repositorio puede entenderse como una base práctica de trabajo para construir dataloggers ambientales en distintas condiciones de hardware y conectividad. Su valor principal está en mostrar, de forma organizada, cómo resolver el mismo problema con enfoques diferentes: lectura local, almacenamiento, transmisión, visualización y monitoreo remoto. Por eso resulta útil tanto como referencia técnica como repositorio de soluciones reutilizables.
