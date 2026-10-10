@@ -10,6 +10,8 @@ La motivacion para hacer nuestro propio datalogger para conservación puede ser 
 
 El objetivo técnico de este conjunto de proyectos es invitar aotras personas a experimentar, comparar y consolidar distintas arquitecturas de adquisición y envío de datos ambientales desde microcontroladores. En lugar de limitarse a una única placa o servicio, el repositorio muestra variantes que permiten adaptar la solución a diferentes necesidades: desde registros locales en tarjeta SD, hasta publicación en plataformas web o en aplicaciones móviles. Esto convierte al repositorio en una base útil para prototipado, documentación técnica y reutilización de código en futuros desarrollos de monitoreo ambiental.
 
+![Componentes de hardware](/imagenes/Figura_2.jpg)
+
 ## MICROCONTROLADORES
 
 La categoría **MICROCONTROLADORES** agrupa proyectos organizados según el tipo de tarjeta o microcontrolador utilizado. Aquí se encuentran implementaciones pensadas para Arduino UNO, MEGA, ESP8266, ESP32, D1 mini, NodeMCU y otras variantes, así como combinaciones de placas con módulos adicionales como pantallas LCD, eInk, Ethernet Shield o circuitos para medición de batería. Esta organización permite adaptar la lógica del datalogger al hardware disponible y facilita comparar cómo cambia el comportamiento del sistema entre distintas arquitecturas. También es una categoría especialmente útil para estudiar limitaciones y ventajas de cada plataforma, como consumo energético, capacidad de memoria, conectividad integrada y compatibilidad con librerías.
@@ -36,6 +38,9 @@ A nivel tecnológico, esta categoría suele involucrar protocolos de red, client
 
 ## DESPLIEGUE
 
-La categoría **DESPLIEGUE** está orientada a los montajes pensados para uso en campo o para presentación directa de la información en el dispositivo. Aquí aparecen soluciones con pantallas eInk, buzzer, lectura de batería y gestión de ciclos de actualización, lo que sugiere una intención clara de construir sistemas autónomos, de bajo consumo y visualmente simples. Esta es la parte del repositorio más cercana a una aplicación final, porque no solo adquiere datos, sino que también los hace visibles y útiles para un operador o usuario final.
+![Google sheets](/imagenes/Figura_3.jpg)
+La categoría **DESPLIEGUE** está orientada a los montajes pensados para uso en campo o parala presentación directa de la información en el dispositivo. Aquí aparecen soluciones con pantallas eInk, buzzer, lectura de batería y gestión de ciclos de actualización, lo que sugiere una intención clara de construir sistemas autónomos, de bajo consumo y visualmente simples. Esta es la parte del repositorio más cercana a una aplicación final, porque no solo adquiere datos, sino que también los hace visibles y útiles para un operador o usuario final.
+
+![Datalogger con pantalla de tinta electrónica](/imagenes/eInk.jpg)
 
 Desde el punto de vista tecnológico, esta carpeta destaca por el uso de displays de tinta electrónica, librerías específicas como `Adafruit_ThinkInk`, y mecanismos para operar con eficiencia energética. También aparecen mediciones de batería y señales acústicas que ayudan a confirmar el estado del sistema sin depender necesariamente de una conexión permanente a internet. Es una categoría muy representativa del paso entre prototipo y despliegue funcional.
