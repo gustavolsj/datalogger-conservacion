@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+  <head>
+    <base target="_top" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Últimos datos</title>
+    <style>
+      :root {
+        --bg: #f4f6f8;
+        --card: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --primary: #2563eb;
+        --border: #e5e7eb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .topbar {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1.35rem;
+      }
+
+      .sub {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-top: 6px;
+      }
+
+      .btn {
+        border: 0;
+        background: var(--primary);
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      }
+
+      .kicker {
+        font-size: 0.78rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .title {
+        margin-top: 4px;
+        font-size: 0.95rem;
+        color: #374151;
+      }
+
+      .value {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        word-break: break-word;
+      }
+
+      .meta {
+        margin-top: 8px;
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .status {
+        margin-top: 14px;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .error {
+        color: #b91c1c;
+      }
+
+      .footer {
+        margin-top: 14px;
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <div>
+          <h1>Últimos datos de A, B, C y D</h1>
+          <div class="sub">
+            Muestra el último valor no vacío encontrado por columna
+          </div>
+        </div>
+        <button id="btnRefresh" class="btn" onclick="cargarDatos()">
+          Actualizar
+        </button>
+      </div>
+
+      <div id="grid" class="grid"></div>
+      <div id="status" class="status">Cargando datos...</div>
+      <div class="footer">
+        Tip: si no sale nada, revisa el nombre de la hoja en
+        <code>SHEET_NAME</code>.
+      </div>
+    </div>
+
+    <script>
+      function escapeHtml(v) {
+        return String(v ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function renderCards(data) {
+        const grid = document.getElementById("grid");
+        const status = document.getElementById("status");
+
+        if (!Array.isArray(data) || data.length === 0) {
+          grid.innerHTML = "";
+          status.textContent = "No se encontraron datos.";
+          return;
+        }
+
+        grid.innerHTML = data
+          .map((item) => {
+            const valor =
+              item.valor === "" ||
+              item.valor === null ||
+              typeof item.valor === "undefined"
+                ? "—"
+                : escapeHtml(item.valor);
+
+            const encabezado = item.encabezado
+              ? escapeHtml(item.encabezado)
+              : "(Sin encabezado)";
+            const fila = item.fila ? `Fila ${item.fila}` : "Sin fila";
+
+            return `
+            <article class="card">
+              <div class="kicker">Columna ${escapeHtml(item.columna)}</div>
+              <div class="title">${encabezado}</div>
+              <div class="value">${valor}</div>
+              <div class="meta">${fila}</div>
+            </article>
+          `;
+          })
+          .join("");
+
+        status.textContent = `Actualizado: ${new Date().toLocaleString()}`;
+      }
+
+      function setLoading(loading) {
+        const btn = document.getElementById("btnRefresh");
+        const status = document.getElementById("status");
+        btn.disabled = loading;
+        if (loading) status.textContent = "Cargando datos...";
+      }
+
+      function showError(err) {
+        const status = document.getElementById("status");
+        status.classList.add("error");
+        status.textContent =
+          "Error: " + (err && err.message ? err.message : err);
+      }
+
+      function clearErrorStyle() {
+        document.getElementById("status").classList.remove("error");
+      }
+
+      function cargarDatos() {
+        clearErrorStyle();
+        setLoading(true);
+
+        google.script.run
+          .withSuccessHandler(function (res) {
+            setLoading(false);
+            renderCards(res);
+          })
+          .withFailureHandler(function (err) {
+            setLoading(false);
+            showError(err);
+          })
+          .getUltimosDatos();
+      }
+
+      // Cargar automáticamente al abrir
+      window.addEventListener("load", cargarDatos);
+    </script>
+  </body>
+</html>

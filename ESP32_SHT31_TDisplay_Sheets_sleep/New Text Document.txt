@@ -1,0 +1,165 @@
+//https://docs.google.com/spreadsheets/d/1FVmHUax2_RJOhgg5QHVmPYLc9MkOaE352JFP3wuJvjM/edit?usp=sharing
+
+//function doPost(e) {
+//  var hoja = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+//  var datos = JSON.parse(e.postData.contents);
+//  hoja.appendRow([new Date(), datos.temperature, datos.humidity, datos.battery]);
+//  return ContentService.createTextOutput("Datos recibidos correctamente");
+//}
+
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <Wire.h>
+#include "Adafruit_SHT31.h"
+#include <WiFiClientSecure.h>
+#include <SPI.h>
+#include <TFT_eSPI.h>
+
+// 🔧 Configuración de red WiFi
+//const char* nombre_red = "P3LUS0S";
+//const char* contrasena_red = "197819822014pelusas";
+//const char* nombre_red = "INFINITUM7D09";
+//const char* contrasena_red = "FtMGgeuu2F";
+const char* nombre_red = "test";
+const char* contrasena_red = "testest";
+
+// 🌐 URL del Web App de Google Apps Script
+//V1. BATT
+//const char* url_script = "https://script.google.com/macros/s/AKfycby7jRPpnoLS9xBcLykQgo7mLQFKwzEmYfyusxL1dfb8rjr37fKAgILFNk_8q0YrFGM/exec";
+//V2. T_Display
+const char* url_script = "https://script.google.com/macros/s/AKfycbzCwcLa3aZwFUob-5fgGKK2soemYkhN0zUmdfHBWXCGb8DxigIcThEz76KvSzMl9lNh/exec";
+
+// ⏱️ Tiempo de deep sleep en microsegundos (3 minutos)
+#define TIEMPO_SLEEP 1 * 60 * 1000000ULL
+
+// 🔋 Pin para lectura de batería (A13 en ESP32 Feather)
+#define VBAT_PIN A13
+
+// 🌡️ Instancias
+Adafruit_SHT31 sensor_clima = Adafruit_SHT31();
+TFT_eSPI tft = TFT_eSPI();
+
+// Variable para alternancia de colores
+RTC_DATA_ATTR bool estado = false;
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("ESP32_TDisplay_SHT31_Sheets_Sleep");
+  
+  // 🔍 Inicialización de la pantalla TFT
+  tft.init();
+  tft.setRotation(1); // Ajusta según orientación deseada
+  
+  // Alternancia de color de fondo
+  estado = !estado;
+  uint16_t fondo = estado ? 0xFFFF : 0x0000; // Blanco o Negro
+  
+  tft.fillScreen(fondo);
+  tft.setCursor(0, 10, 4);
+  tft.setTextSize(1);
+  
+  // 🔍 Inicialización del sensor SHT31
+  if (!sensor_clima.begin(0x44)) {
+    Serial.println("❌ No se detectó el sensor SHT31");
+    tft.setTextColor(TFT_RED, fondo);
+    tft.println("ERROR SENSOR");
+    delay(2000);
+    apagarPantalla();
+    esp_deep_sleep(TIEMPO_SLEEP);
+  }
+
+  // 📈 Lectura de temperatura y humedad
+  float temperatura = sensor_clima.readTemperature();
+  float humedad = sensor_clima.readHumidity();
+  float voltaje_bateria = leerBateria();
+
+  if (!isnan(temperatura) && !isnan(humedad)) {
+    Serial.printf("🌡️ Temp: %.2f °C, 💧 Hum: %.2f %%, 🔋 Bat: %.2fV\n", 
+                  temperatura, humedad, voltaje_bateria);
+    
+    // Mostrar temperatura en pantalla
+    tft.fillScreen(fondo);
+    tft.setCursor(0, 10, 4);
+    tft.setTextSize(1);
+    tft.setTextColor(TFT_RED, fondo);
+    tft.println("Temp");
+    tft.setTextSize(2);
+    tft.print((int)temperatura);
+    tft.println(" *C");
+    
+    // Mostrar humedad en pantalla
+    tft.setCursor(0, 110, 4);
+    tft.setTextColor(TFT_BLUE, fondo);
+    tft.setTextSize(1);
+    tft.println("Hum");
+    tft.setTextSize(2);
+    tft.print((int)humedad);
+    tft.println(" %");
+    
+    delay(2000); // Mostrar datos por 2 segundos
+    
+    // 🔌 Conexión WiFi con timeout
+    WiFi.begin(nombre_red, contrasena_red);
+    int intentos = 0;
+    while (WiFi.status() != WL_CONNECTED && intentos < 20) {
+      delay(500);
+      intentos++;
+    }
+
+    if (WiFi.status() == WL_CONNECTED) {
+      enviarDatos(temperatura, humedad, voltaje_bateria);
+      WiFi.disconnect(true);
+    } else {
+      Serial.println("❌ WiFi timeout");
+    }
+  } else {
+    Serial.println("⚠️ Error al leer sensor");
+    tft.setTextColor(TFT_RED, fondo);
+    tft.println("ERROR");
+    tft.println("LECTURA");
+    delay(2000);
+  }
+
+  // 📴 Apagar pantalla completamente
+  apagarPantalla();
+
+  // 😴 Entrar en deep sleep
+  Serial.println("💤 Entrando en deep sleep...");
+  esp_deep_sleep(TIEMPO_SLEEP);
+}
+
+void loop() {
+  // No se ejecuta debido al deep sleep
+}
+
+float leerBateria() {
+  uint32_t lectura = analogRead(VBAT_PIN);
+  // Conversión: ESP32 Feather tiene divisor de voltaje 2:1
+  float voltaje = (lectura / 4095.0) * 2.0 * 3.3;
+  return voltaje;
+}
+
+void enviarDatos(float temp, float hum, float bat) {
+  WiFiClientSecure client;
+  client.setInsecure(); // Skip certificate validation
+  
+  HTTPClient http;
+  http.begin(client, url_script);
+  http.addHeader("Content-Type", "application/json");
+  http.setTimeout(10000);
+  
+  String json = "{\"temperature\":" + String(temp, 2) + 
+                ",\"humidity\":" + String(hum, 2) + 
+                ",\"battery\":" + String(bat, 2) + "}";
+  int codigo = http.POST(json);
+  
+  Serial.printf("📡 HTTP: %d\n", codigo);
+  http.end();
+}
+
+void apagarPantalla() {
+  tft.fillScreen(TFT_BLACK);
+  tft.writecommand(TFT_DISPOFF); // Apagar display
+  tft.writecommand(TFT_SLPIN);   // Modo sleep
+  digitalWrite(TFT_BL, LOW);     // Apagar backlight
+}
