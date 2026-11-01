@@ -6,7 +6,7 @@
 
 ## 🖥️ Paso 1: Identificar la versión de tu sistema operativo
 
-Este paso es **para determinar qué versión de Arduino IDE necesitas instalar**.
+Este paso es **para determinar qué versión de Arduino IDE necesitas instalar**
 
 ![versión windows](../imagenes/guia_win/1_win.jpg)
 
