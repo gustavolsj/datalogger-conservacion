@@ -29,7 +29,7 @@ Este paso es **para determinar qué versión de Arduino IDE necesitas instalar**
 
 ## 🔗 Paso 3: Conectar el microcontrolador y verificar el puerto COM
 
-![Puerto COM](../imagenes/guia_WIN/3.4_win.JPG)
+![Puerto COM](../imagenes/guia_win/3.4_win.jpg)
 
 1. Presiona la tecla Windows y escribe Device Manager, ubica la sección de Puertos COM & LPT
 2. Verifica que ahí el sistema muestre una entrada con el número COM cuando conectas la placa ESP32 TTGO T‑Display.
@@ -42,7 +42,7 @@ Este paso es **para determinar qué versión de Arduino IDE necesitas instalar**
 
 La TTGO T‑Display necesita un **driver USB–Serial** para que la computadora la reconozca.
 
-![Puerto COM](../imagenes/guia_WIN/4.1_win.JPG)
+![Puerto COM](../imagenes/guia_win/4.1_win.jpg)
 
 1. **Descarga Driver**
    - Selecciona la opción que dice CP210x VCP Windows [CP210x VCP Drivers – Silicon Labs](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers)
@@ -56,7 +56,7 @@ La TTGO T‑Display necesita un **driver USB–Serial** para que la computadora 
 
 ## ⚙️ Paso 5: Instalar gestor de tarjetas ESP32
 
-![URL Gestor tarjetas](../imagenes/guia_WIN/5.1_win.jpg)
+![URL Gestor tarjetas](../imagenes/guia_win/5.1_win.jpg)
 
 1. Abre el progrma Arduino IDE y ve al menú → _Archivo → Preferencias_.
 2. En “Additional Boards Manager URLs” pega la URL oficial actual:
@@ -64,7 +64,7 @@ La TTGO T‑Display necesita un **driver USB–Serial** para que la computadora 
    https://espressif.github.io/arduino-esp32/package_esp32_index.json
    ```
 3. Haz clic en **OK**.
-   ![Instalar Gestor tarjetas](../imagenes/guia_WIN/5.4_win.jpg)
+   ![Instalar Gestor tarjetas](../imagenes/guia_win/5.4_win.jpg)
 4. Ve a _Herramientas → Placa → Gestor de tarjetas_.
 5. Busca **ESP32 by Espressif Systems** y da clic en **Instalar**.
 
@@ -74,11 +74,11 @@ La TTGO T‑Display necesita un **driver USB–Serial** para que la computadora 
 
 En _Programa → Incluir librería → Administrar librerías_ busca e instala:
 
-![SHT31](../imagenes/guia_WIN/6.1_win.jpg)
+![SHT31](../imagenes/guia_win/6.1_win.jpg)
 
 - **Adafruit SHT31**
 
-![LovyanGFX](../imagenes/guia_WIN/6.2_win.jpg)
+![LovyanGFX](../imagenes/guia_win/6.2_win.jpg)
 
 - **LovyanGFX**
 
@@ -86,7 +86,7 @@ En _Programa → Incluir librería → Administrar librerías_ busca e instala:
 
 ## 💡 Paso 7: Seleccionar placa y puerto y Subir un codigo de prueba
 
-![placa y puerto](../imagenes/guia_WIN/7.1_win.jpg)
+![placa y puerto](../imagenes/guia_win/7.1_win.jpg)
 
 1. En el Arduino IDE.
 
@@ -96,7 +96,7 @@ En _Programa → Incluir librería → Administrar librerías_ busca e instala:
 
 4. Selecciona el puerto correcto que identificaste en el paso 3.
 
-![subir código](../imagenes/guia_WIN/7.2_win.jpg)
+![subir código](../imagenes/guia_win/7.2_win.jpg)
 
 5. Haz clic en Subir y espera a que terminen porque puede tardar varios minutos.
 
