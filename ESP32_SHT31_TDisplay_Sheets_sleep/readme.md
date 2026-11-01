@@ -29,7 +29,7 @@ Este paso es **para determinar qué versión de Arduino IDE necesitas instalar**
 
 ## 🔗 Paso 3: Conectar el microcontrolador y verificar el puerto COM
 
-![Puerto COM](../imagenes/guia_win/3.4_win.jpg)
+![Puerto COM](../imagenes/guia_win/3..4_win.jpg)
 
 1. Presiona la tecla Windows y escribe Device Manager, ubica la sección de Puertos COM & LPT
 2. Verifica que ahí el sistema muestre una entrada con el número COM cuando conectas la placa ESP32 TTGO T‑Display.
