@@ -2,6 +2,10 @@
 
 ---
 
+[GUIA PARA WINDOWS](#guia-para-windows)
+
+[GUIA PARA MACOS](#guia-para-macos)
+
 # GUIA PARA WINDOWS
 
 ## 🖥️ Paso 1: Identificar la versión de tu sistema operativo
@@ -27,34 +31,7 @@ Este paso es **para determinar qué versión de Arduino IDE necesitas instalar**
 
 ---
 
-## 🔗 Paso 3: Conectar el microcontrolador y verificar el puerto COM
-
-![Puerto COM](../imagenes/guia_win/3..4_win.jpg)
-
-1. Presiona la tecla Windows y escribe Device Manager, ubica la sección de Puertos COM & LPT
-2. Verifica que ahí el sistema muestre una entrada con el número COM cuando conectas la placa ESP32 TTGO T‑Display.
-3. Asegurate de usar un **cable USB‑C de datos**.
-4. Si no aparece la placa TTGO T‑Display es porque necesita un **driver USB–Serial** para que la computadora la reconozca ve al paso 4, de otra manera ve al 5.
-
----
-
-## 🔌 Paso 4: Instalar drivers para la placa TTGO T‑Display V1
-
-La TTGO T‑Display necesita un **driver USB–Serial** para que la computadora la reconozca.
-
-![Puerto COM](../imagenes/guia_win/4.1_win.jpg)
-
-1. **Descarga Driver**
-   - Selecciona la opción que dice CP210x VCP Windows [CP210x VCP Drivers – Silicon Labs](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers)
-
-2. **Instala el Driver**
-   - Descomprime la carpeta y ejecuta el archivo .exe que corresponda a tu sistema operativo, sigue las indicaciones de instalacón.
-
-3. **Reinicia tu computadora** para que el sistema reconozca la placa.
-
----
-
-## ⚙️ Paso 5: Instalar gestor de tarjetas ESP32
+## ⚙️ Paso 3: Instalar gestor de tarjetas ESP32
 
 ![URL Gestor tarjetas](../imagenes/guia_win/5.1_win.jpg)
 
@@ -70,7 +47,7 @@ La TTGO T‑Display necesita un **driver USB–Serial** para que la computadora 
 
 ---
 
-## 📚 Paso 6: Instalar librerías necesarias
+## 📚 Paso 4: Instalar librerías necesarias
 
 En _Programa → Incluir librería → Administrar librerías_ busca e instala:
 
@@ -84,7 +61,7 @@ En _Programa → Incluir librería → Administrar librerías_ busca e instala:
 
 ---
 
-## 💡 Paso 7: Seleccionar placa y puerto y Subir un codigo de prueba
+## 💡 Paso 5: Seleccionar placa, puerto y subir un codigo de prueba
 
 ![placa y puerto](../imagenes/guia_win/7.1_win.jpg)
 
@@ -94,13 +71,45 @@ En _Programa → Incluir librería → Administrar librerías_ busca e instala:
 
 3. En el menu desplegable ubicado a la derecha de los botones verdes ve a la opción para selecciona la placa y el puerto, elige la placa: ESP32 TTGO T‑Display.
 
-4. Selecciona el puerto correcto que identificaste en el paso 3.
+4. Selecciona el puerto correcto, debe decir algo similar a COM6.
 
 ![subir código](../imagenes/guia_win/7.2_win.jpg)
 
 5. Haz clic en Subir y espera a que terminen porque puede tardar varios minutos.
 
 La pantalla mostrará texto y gráficos básicos, confirmando que la librería funciona y que la placa está configurada correctamente. 🎉
+
+3. Asegurate de usar un **cable USB‑C de datos**.
+
+4. Si no aparece el puerto de la placa TTGO T‑Display es porque necesita un **driver USB–Serial** para que la computadora la reconozca ve al paso siguiente.
+
+---
+
+## 🔗 Paso 6: Verificar el puerto COM del dispositivo
+
+![Puerto COM](../imagenes/guia_win/3..4_win.jpg)
+
+1. Presiona la tecla Windows y escribe Device Manager, ubica la sección de Puertos COM & LPT
+
+2. Verifica que ahí el sistema muestre una entrada con el número COM cuando conectas la placa ESP32 TTGO T‑Display.
+
+3. Si no es así sigue con el paso siguiente
+
+---
+
+## 🔌 Paso 7: Instalar drivers para la placa TTGO T‑Display V1
+
+La TTGO T‑Display necesita un **driver USB–Serial** para que la computadora la reconozca.
+
+![Puerto COM](../imagenes/guia_win/4.1_win.jpg)
+
+1. **Descarga Driver**
+   - Selecciona la opción que dice CP210x VCP Windows [CP210x VCP Drivers – Silicon Labs](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers)
+
+2. **Instala el Driver**
+   - Descomprime la carpeta y ejecuta el archivo .exe que corresponda a tu sistema operativo, sigue las indicaciones de instalacón.
+
+3. **Reinicia tu computadora** para que el sistema reconozca la placa.
 
 ---
 
@@ -146,33 +155,7 @@ Este paso es **para determinar qué versión de Arduino IDE necesitas instalar**
 
 ---
 
-## 🔗 Paso 4: Conectar el microcontrolador y verificar el puerto
-
-![verificar puerto](../imagenes/guia_mac/4_mac.png)
-
-1. Usa un **cable USB‑C de datos**.
-2. Conecta la placa ESP32 TTGO T‑Display.
-3. En el Arduino IDE abre el menu desplegable ubicado a la derecha de los botones verdes y selecciona la opción para seleccionar la placa y el puerto, en puerto deveras ver algo como `/dev/cu.usbserial-...` o `/dev/cu.wchusbserial-...`.
-4. Si no aparece nada es porque la placa TTGO T‑Display es porque necesita un **driver USB–Serial** para que la computadora la reconozca ve al paso 5, de otra manera ve al 6.
-
----
-
-## 🔌 Paso 5: Instalar drivers serial para la placa TTGO T‑Display V1
-
-![descargar driver serial](../imagenes/guia_win/4.1_win.jpg)
-
-1. Abre la paágina de descarga de los [CP210x VCP Drivers – Silicon Labs](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers)
-
-2. **Descarga el driver** - Selecciona la opción que dice CP210x VCP MAC OSX Driver
-
-![instalar driver serial](../imagenes/guia_mac/5.3_mac.png)
-
-3. **Instala y reinicia tu computadora** para que el sistema reconozca la placa.
-4. Vuelve al paso 4 y verifica el puerto.
-
----
-
-## 📚 Paso 6: Instalar librerías necesarias
+## 📚 Paso 4: Instalar librerías necesarias
 
 Abre el Arduino IDE y ve al menú _Programa → Incluir librería → Administrar librerías_ ahí busca e instala:
 
@@ -186,7 +169,7 @@ Abre el Arduino IDE y ve al menú _Programa → Incluir librería → Administra
 
 ---
 
-## 💡 Paso 7: Subir un codigo de prueba
+## 💡 Paso 5: Subir un codigo de prueba
 
 1. Abre el codigo ubicado en el menú Archivo → Ejemplos → LovyanGFX → HowToUse 1_simple_use.
 
@@ -194,13 +177,39 @@ Abre el Arduino IDE y ve al menú _Programa → Incluir librería → Administra
 
 3. Selecciona la placa: ESP32 TTGO T‑Display.
 
-4. Selecciona el puerto correcto que identificaste en el paso 4.
+4. Selecciona el puerto debe aparecer algo como `/dev/cu.usbserial-...` o `/dev/cu.wchusbserial-...`.
 
 ![lovyanGFX](../imagenes/guia_mac/7.5_mac.png)
 
 5. Haz clic en Subir y espera a que terminen porque puede tardar varios minutos.
 
 Si todo sale bien la pantalla de la placa mostrará texto y gráficos básicos, confirmando que la librería funciona y que la placa está configurada correctamente. 🎉
+
+Si no aparece el puerto continua con los pasos siguientes
+
+## 🔗 Paso 6: Verificar el puerto
+
+1. Haz clic en Command _⌘ → + Barra de Espacio_ y escribe _Terminal_.
+2. Para ver la lista actual de dispositivos seriales escribe el siguiente comando y presiona enter: `ls /dev/cu.*`
+3. El nombre que aparezca por ejemplo: /dev/cu.usbserial-141240 Serial Port (USB), es el puerto de tu ESP32.
+4. Si no aparece nada es porque la placa TTGO T‑Display es porque necesita un **driver USB–Serial** para que la computadora la reconozca ve al paso siguiente.
+
+---
+
+## 🔌 Paso 7: Instalar drivers serial para la placa TTGO T‑Display V1
+
+![descargar driver serial](../imagenes/guia_win/4.1_win.jpg)
+
+1. Abre la paágina de descarga de los [CP210x VCP Drivers – Silicon Labs](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers)
+
+2. **Descarga el driver** - Selecciona la opción que dice CP210x VCP MAC OSX Driver
+
+![instalar driver serial](../imagenes/guia_mac/5.3_mac.png)
+
+3. **Instala y reinicia tu computadora** para que el sistema reconozca la placa.
+4. Vuelve al paso 5.
+
+---
 
 ## ⚠️ Detalles importantes
 
