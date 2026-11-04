@@ -65,9 +65,9 @@ En _Programa → Incluir librería → Administrar librerías_ busca e instala:
 
 ![placa y puerto](../imagenes/guia_win/7.1_win.jpg)
 
-1. En el Arduino IDE.
+1. Conecta la placa a tu computadora, asegurate de usar un **cable USB‑C de datos**.
 
-2. Ve al Menú Archivo y abre el archivo ubicado en → Ejemplos → LovyanGFX → HowToUse 1_simple_use.
+2. En el Arduino IDE ve al Menú Archivo y abre el archivo ubicado en → Ejemplos → LovyanGFX → HowToUse 1_simple_use.
 
 3. En el menu desplegable ubicado a la derecha de los botones verdes ve a la opción para selecciona la placa y el puerto, elige la placa: ESP32 TTGO T‑Display.
 
@@ -77,11 +77,9 @@ En _Programa → Incluir librería → Administrar librerías_ busca e instala:
 
 5. Haz clic en Subir y espera a que terminen porque puede tardar varios minutos.
 
-La pantalla mostrará texto y gráficos básicos, confirmando que la librería funciona y que la placa está configurada correctamente. 🎉
+Si todo sale bien la pantalla de la placa mostrará texto y gráficos básicos, confirmando que la librería funciona y que la placa está configurada correctamente. 🎉
 
-3. Asegurate de usar un **cable USB‑C de datos**.
-
-4. Si no aparece el puerto de la placa TTGO T‑Display es porque necesita un **driver USB–Serial** para que la computadora la reconozca ve al paso siguiente.
+Si en el punto #4 no aparece el puerto de la placa TTGO T‑Display es porque necesita un **driver USB–Serial** para que la computadora la reconozca, ve al paso siguiente.
 
 ---
 
@@ -171,7 +169,9 @@ Abre el Arduino IDE y ve al menú _Programa → Incluir librería → Administra
 
 ## 💡 Paso 5: Subir un codigo de prueba
 
-1. Abre el codigo ubicado en el menú Archivo → Ejemplos → LovyanGFX → HowToUse 1_simple_use.
+1. Conecta la placa a tu computadora, asegurate de usar un **cable USB‑C de datos**.
+
+2. Abre el Arduino IDE Y ve abre el codigo ubicado en el menú Archivo → Ejemplos → LovyanGFX → HowToUse 1_simple_use.
 
 ![seleccionar placa y puerto](../imagenes/guia_mac/4_mac.png)
 
@@ -185,7 +185,7 @@ Abre el Arduino IDE y ve al menú _Programa → Incluir librería → Administra
 
 Si todo sale bien la pantalla de la placa mostrará texto y gráficos básicos, confirmando que la librería funciona y que la placa está configurada correctamente. 🎉
 
-Si no aparece el puerto continua con los pasos siguientes
+Si en la sección #4 no aparece el puerto continua ve al paso siguiente.
 
 ## 🔗 Paso 6: Verificar el puerto
 
