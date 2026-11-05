@@ -1,13 +1,6 @@
-# datalogger-conservacion
+# Datalogger ambiental para conservacion v.1.0
 
-**ACTUALIZACIÓN DIC 2024:** Ahora es posible programar el datalogger desde un buscador como Chrome o Firefox sin necesidad de instalar el IDE en tu computadora ni de instalar las librerias. Para ello puedes usar mi [sketch en linea](https://app.arduino.cc/sketches/02564d45-08e9-412f-9886-60db8a78643e).
-
-Para mayor información sigue estas instrucciones sobre el [Arduino Cloud Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor/)
-
-Guía para la fabricación de un datalogger para la conservación preventiva en archivos, bibliotecas y museos
-![datalogger](imagenes/datalogger.jpg)
-
-# Indice 👉
+## Indice 👉
 
 - [Descripcion general](#descripcion-general-)
 - [Componentes](#componentes-)
@@ -15,7 +8,7 @@ Guía para la fabricación de un datalogger para la conservación preventiva en 
 - [Librerias](#librerias-)
 - [Programación](#programacion-)
 
-# Descripcion general 📚
+## Descripcion general 📚
 
 Dentro de la disciplina de la conservación de bienes culturales, una de las estrategías más efectivas para minimizar su deterioro es el [ Monitoreo y Control](http://www.bnm.unam.mx/files/quienes-somos/preservacion-documental/norma-mexicana-preservacion-documental.pdf) de los [Agentes de deterioro](https://www.cncr.gob.cl/noticias/agentes-de-deterioro-instituto-canadiense-de-conservacion-icc).
 
@@ -25,9 +18,9 @@ Aquí se ofrece una alternativa para construir un datalogger que mida la humedad
 
 Para conocer más sobre este proyecto puedes leer el artículo [Tecnología maker y su aplicación en conservación](https://revistaintervencion.inah.gob.mx/index.php/intervencion/article/view/6443)
 
-# Componentes ✔️
+## Componentes ✔️
 
-![Componentes de un datalogger casero](imagenes/componentes.jpg)
+![Componentes de un datalogger casero](../imagenes/componentes.jpg)
 El componente más importante es el sensor, en él recae buena parte de la confiabilidad del datalogger, por lo que vale la pena invertir en uno que sea de buena calidad en un proveedor confiable. En este proyecto se ha usado este:
 
 - [Bosch® BME280](https://mexico.newark.com/c/computadoras-de-tarjeta-unica-creador-educacion/tarjetas-modulos-complementarios?st=bme280&showResults=true)
@@ -43,9 +36,9 @@ El resto de los componentes necesarios para su construcción son mínimos y pued
 - [Cargador USB](https://listado.mercadolibre.com.mx/cargador-usb#D)
 - [Pantalla LCD con interfaz I2C](https://listado.mercadolibre.com.mx/pantalla-i2c#D) \*opcional
 
-# Fabricación 🛠️
+## Fabricación 🛠️
 
-![conexiones](imagenes/conexiones.jpg)
+![conexiones](../imagenes/conexiones.jpg)
 
 La fabricación es muy sencilla ya que los componentes son mínimos, unicamente se debe ensamblar el Datalogger shield sobre el Arduino Uno teniendo cuidado de que todos los pines entren correctamente.
 
@@ -53,9 +46,9 @@ Los sensores son del tipo I2C por lo que se requieren 4 cables tipo Dupont del t
 
 Para proteger los componentes se pude imprimir en 3D una carcasa o bien se puede colocar el datalogger dentro de un contenedor de plástico
 
-![fritzing](imagenes/fritzing.jpg)
+![fritzing](../imagenes/fritzing.jpg)
 
-# Librerias 📖
+## Librerias 📖
 
 Para establecer comunicación entre la computadora y el Arduino se necesita instalar el programa Arduino IDE, descargalo [aqui](https://www.arduino.cc/en/software), en esta [guía](https://programarfacil.com/blog/arduino-blog/arduino-ide/) puedes ver como se instala.
 
@@ -65,9 +58,9 @@ Adicionalmente los diferentes componentes necesitan varias librerias para funcio
 
 En caso de que las necesites también las puedes encontrar en la carpeta [librerias](librerias/)
 
-# Programacion 🖥️
+## Programacion 🖥️
 
-![codigo](imagenes/codigo.jpg)
+![codigo](../imagenes/codigo.jpg)
 El código se compone de tres partes, la sección de librerías y variables, la sección de configuración y la sección del ciclo.
 
 Los archivos listos para subirse al arduino se encuentra en dos carpetas, dependiendo cual de los sensores hayas elegido usar, también dependiendo de si se utiliza la pantalla LCD o no.
@@ -79,4 +72,4 @@ El datalogger realiza una medición cada 30 minutos y almacena los datos en un a
 
 Los datos se almacenan bajo la siguiente estructura: año/mes/día hora:minuto:segundo, HR, valor, T, valor. En donde la fecha y la hora se expresa numéricamente en formato de 24 horas y los valores de humedad relativa y temperatura consisten en números con dos decimales.
 
-![grafica](imagenes/grafica.jpg)
+![grafica](../imagenes/grafica.jpg)
