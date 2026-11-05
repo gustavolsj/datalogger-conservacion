@@ -1,3 +1,6 @@
+
+////////////////////////////  Sección de librerías y variables  ////////////////////////////
+
 #include <SPI.h>
 #include <Wire.h>
 #include <WiFi.h>
@@ -34,6 +37,8 @@ bool conectarWiFi();
 float leerBateria();
 void enviarDatos(float temperatura, float humedad, float bateria);
 void apagarPantalla();
+
+////////////////////////////  Sección de configuración  ////////////////////////////////////
 
 void setup(void) {
   Serial.begin(115200);
@@ -111,9 +116,18 @@ void setup(void) {
   esp_deep_sleep(TIEMPO_SLEEP);
 }
 
+
+////////////////////////////  Sección de ciclo  ////////////////////////////////////////////
+
+
 void loop() {
   // El ESP32 reinicia setup() al despertar del deep sleep.
 }
+
+
+
+////////////////////////////  Sección de funciones  ////////////////////////////////////////////
+
 
 bool conectarWiFi() {
   if (WiFi.status() == WL_CONNECTED) {
