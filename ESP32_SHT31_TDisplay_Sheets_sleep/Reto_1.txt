@@ -1,0 +1,3 @@
+Ahorro de bateria extremo
+Modifica el codigo para que se guarden los datos de 10  mediciones en la memoria intena de la placa y despues se envien todos juntos a Google sheets a traves de una sola conexion wifi. 
+Debe haber una excepcion que será que se envien inmediatamente si se rebasa el valor de alerta para bateria, temperatura o humedad.
