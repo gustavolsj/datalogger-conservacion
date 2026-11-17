@@ -11,9 +11,9 @@
 #include <HTTPClient.h>       // Librería para hacer peticiones HTTP (enviar datos a internet)
 #include <WiFiClientSecure.h> // Permite conexiones seguras (HTTPS), necesarias para Google
 #include "Adafruit_SHT31.h"
-#define LGFX_TTGO_TDISPLAY
-#include <LovyanGFX.hpp>
-#include <LGFX_AUTODETECT.hpp>
+//#define LGFX_TTGO_TDISPLAY
+#include <LovyanGFX.h>
+//#include <LGFX_AUTODETECT.hpp>
 
 const char *nombre_red = "TU_RED_WIFI";                                             // Nombre (SSID) de la red WiFi a la que nos conectaremos
 const char *contrasena_red = "TU_CONTRASENA";                                       // Contraseña de esa red
