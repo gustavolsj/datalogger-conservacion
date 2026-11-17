@@ -1,0 +1,4 @@
+Pantalla de tinta electronica
+Modifica el codigo para usar una pantalla de tinta electronica que ahorra mucha mas energia que una pantalla de tipo oled.
+La marca es Lavfin y el modelo es Blanco y Negro de 2.13" (Panel estándar de 250 x 122 px) y se conecta por el protocolo SPI que usa 6 cables
+La libreria necesaria es Adafruit_GFX
