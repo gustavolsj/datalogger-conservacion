@@ -15,9 +15,8 @@
 #include <HTTPClient.h>
 #include <WiFiClientSecure.h>
 #include "Adafruit_SHT31.h"
-#define LGFX_TTGO_TDISPLAY 
-#include <LovyanGFX.hpp>
-#include <LGFX_AUTODETECT.hpp>
+#include "LovyanGFX.h"       // Librería gráfica para dibujar texto y formas en la pantalla
+
 
 const char* nombre_red = "TU_RED_WIFI";
 const char* contrasena_red = "TU_CONTRASENA";
