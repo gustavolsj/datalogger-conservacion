@@ -7,9 +7,7 @@
 
 #include <Wire.h>
 #include "Adafruit_SHT31.h"
-#define LGFX_TTGO_TDISPLAY     // Le indica a la librería que usamos la placa TTGO T-Display (pantalla integrada)
-#include <LovyanGFX.hpp>       // Librería gráfica para dibujar texto y formas en la pantalla
-#include <LGFX_AUTODETECT.hpp> // Configura automáticamente los pines y el controlador de la pantalla
+#include "LovyanGFX.h"       // Librería gráfica para dibujar texto y formas en la pantalla
 
 LGFX tft; // Creamos el objeto "tft" que representa a la pantalla
 Adafruit_SHT31 sht31 = Adafruit_SHT31();
